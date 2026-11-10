@@ -1,4 +1,7 @@
 import statistics
+import pandas as pd
+sales = pd.read_csv("data/sales.csv")
+print(sales)
 def analyser_ventes(transactions):
    
    # 1. Nettoyage des données
@@ -22,7 +25,7 @@ def analyser_ventes(transactions):
     for x in valides:
         if x > seuil:
             anomalies.append(x)
-
+    print("voilà !")
     return {
         "nombre_transactions": nombre,
         "somme_totale": somme,
@@ -39,5 +42,6 @@ if __name__ == "__main__":
     resultat = analyser_ventes(ventes)
     for cle, valeur in resultat.items():
         print(f"{cle} : {valeur}")
+
 
 
